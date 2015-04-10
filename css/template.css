@@ -1,0 +1,76 @@
+﻿body {
+}
+
+header{
+    position:absolute;
+    top:0px; left:0px;
+    height:60px;
+    line-height:60px;
+    text-align: center;
+    background:#313233;
+    width:100%;
+}  
+
+.nav{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    height:60px;
+    line-height:60px;
+    text-align:center;
+    background:#313233;
+    overflow:hidden;
+}
+.nav a{
+         float:left;
+         display:block;
+         width: 24%;
+         line-height:60px;height:60px;
+}
+
+
+.nav img{
+        margin-top:15px;
+}
+
+.icon-home{
+    background:url("../res/image/icon-account.png") no-repeat;
+}.icon-jukebox{
+    background:url("../res/image/icon-account.png") no-repeat;
+}.icon-playing{
+    background:url("../res/image/icon-account.png") no-repeat;
+}.icon-account{
+    background:url("../res/image/icon-account.png") no-repeat;
+}
+
+ .active{border-top : 3px solid #ff0000}
+
+ .view{
+     position:absolute;
+     top:60px; right:0;bottom:60px;left:0;
+ }
+
+ .panel{
+     position:absolute;
+     top:0;left:0;right:0;bottom:0;
+     overflow-x:hidden;
+     overflow-y:hidden;
+     -webkit-overflow-scrolling:touch;
+     transition-duration:3.5s;
+     webkit-transition-duration:3.5s;
+ }
+
+ .left
+ {  
+      -webkit-transform: translate3d(100%,0,0); 
+       transform: translate3d(100%,0,0); 
+}
+ .center
+ {  
+      -webkit-transform: translate3d(0,0,0); 
+       transform: translate3d(0,0,0);
+}
+ .right
+ {  
+      -webkit-transform: translate3d(-100%,0,0);
+       transform: translate3d(-100%,0,0); 
+}
