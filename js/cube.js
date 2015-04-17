@@ -3,8 +3,15 @@
        el = document.createElement('div'),
        xAngle = 0,
        yAngle = 0,
+       zAngle = 0,
        diffSizeScreenToCube,
-      currentNormalTransform;
+      currentNormalTransform,
+      down = 0,
+       up = 0,
+      left = 0,
+      right = 0,
+      changeRotate = 0,
+          changeRotateLeftRight = 0;
 
 function resize_cube() {
     var widthExperiment = $(window).width();
@@ -40,36 +47,86 @@ function swipe_cube() {
     }
 
     $('.view').on("swipeleft", function () {
-        yAngle -= 90;
-        document.getElementById('cube').style[prop] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg)";
+        left++;
+        if (changeRotate && changeRotateLeftRight)
+            console.log('okslide');
+        testFaceLeftRight();
+       
+
+        if (changeRotate) {
+            zAngle -= 90;
+            document.getElementById('cube').style[prop] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg) rotateZ(" + zAngle + "deg)";
+        } else {
+            console.log('test');
+            yAngle -= 90;
+            document.getElementById('cube').style[prop] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg) rotateZ(" + zAngle + "deg)";
+        }
     });
     $('.view').on("swiperight", function () {
-        yAngle += 90;
-        document.getElementById('cube').style[prop] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg)";
+        righ++;
+
+        if (changeRotate && changeRotateLeftRight)
+            console.log('okslide');
+        testFaceLeftRight();
+
+
+        if (changeRotate) {
+            zAngle += 90;
+            document.getElementById('cube').style[prop] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg) rotateZ(" + zAngle + "deg)";
+        } else {
+            console.log('test');
+            yAngle += 90;
+            document.getElementById('cube').style[prop] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg) rotateZ(" + zAngle + "deg)";
+        }
     });
     $('.view').on("swipeup", function () {
+
+        up++;
+        testFaceUpDown();
         xAngle += 90;
-        document.getElementById('cube').style[prop] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg)";
+        document.getElementById('cube').style[prop] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg) rotateZ(" + zAngle + "deg)";
     });
+
     $('.view').on("swipedown", function () {
+
+        down++;
+        testFaceUpDown();
         xAngle -= 90;
-        document.getElementById('cube').style[prop] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg)";
+        document.getElementById('cube').style[prop] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg) rotateZ(" + zAngle + "deg)";
+
+
     });
 }
 
+function testFaceUpDown() {
+    if (((up - down) % 2 == 1) || ((up - down) % 2 == -1))
+        changeRotate = 1;
+    else
+        changeRotate = 0;
+
+}
+
+function testFaceLeftRight() {
+    if (((left - right) % 2 == 1) || ((left - right) % 2 == -1))
+        changeRotateLeftRight = 1;
+    else
+        changeRotateLeftRight = 0;
+
+    console.log((left - right) % 2);
+}
 
 function touch_face_cube() {
-    $('.front').on("tap", function () {
-        currentNormalTransform = $(this).parent().css('-webkit-transform');
-        $(this).parent().css('-webkit-transform', currentNormalTransform + ' scale(' + diffSizeScreenToCube + ')');
-        $(this).hide();
-        $(this).parent().children('.back').show();
-    });
+    //$('.front').on("tap", function () {
+    //    currentNormalTransform = $(this).parent().css('-webkit-transform');
+    //    $(this).parent().css('-webkit-transform', currentNormalTransform + ' scale(' + diffSizeScreenToCube + ')');
+    //    $(this).hide();
+    //    $(this).parent().children('.back').show();
+    //});
 
-    $('.back').on("tap", function () {
-        $(this).parent().css('-webkit-transform', currentNormalTransform + ' scale(1)');
-        $(this).parent().children('.front').show();
-        $(this).hide();
-    });
+    //$('.back').on("tap", function () {
+    //    $(this).parent().css('-webkit-transform', currentNormalTransform + ' scale(1)');
+    //    $(this).parent().children('.front').show();
+    //    $(this).hide();
+    //});
 
 }

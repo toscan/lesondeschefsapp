@@ -1,4 +1,4 @@
-﻿function init_cube()
+﻿function stop_animate()
 {
     $('.view').one("tap", function () {
         $('#cube').removeClass('animate');

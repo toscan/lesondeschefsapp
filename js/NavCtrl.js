@@ -1,3 +1,4 @@
-﻿app.controller("NavCtrl", function ($scope) {
-    $scope.menu = "home"
-});
+﻿app.controller('NavCtrl', ['$scope',
+  function ($scope) {
+      $scope.menu = "home";
+  }]);

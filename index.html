@@ -9,26 +9,35 @@
     <link href="css/cube.css" rel="stylesheet" />
 </head>
 <body>
-   <header class="header">
-       Le Son Des Chefs
-   </header>
+    <header class="header">
+        Le Son Des Chefs
+    </header>
+    <div ng-controller="NavCtrl">
+        <section ng-view class="view">        </section>
 
-    <section class="view" ng-view>
+        <nav class="nav">
+            <a href="#home" ng-click="menu ='home'" ng-class="{active : menu == 'home'}"><img src="/res/image/icon-account.png" /></a>
+            <a href="#jukebox" ng-click="menu ='jukebox'" ng-class="{active : menu == 'jukebox'}"><img src="/res/image/icon-account.png" /></a>
+            <a href="#playing" ng-click="menu ='playing'" ng-class="{active : menu == 'playing'}"><img src="/res/image/icon-account.png" /></a>
+            <a href="#account" ng-click="menu ='account'" ng-class="{active : menu == 'account'}"><img src="/res/image/icon-account.png" /></a>
+        </nav>
 
-    </section>
-     
-    <nav class="nav" ng-controller="NavCtrl">
-        <a href="#home" ng-click ="menu ='home'" ng-class="{active : menu == 'home'}"><img src="/res/image/icon-account.png" /></a>
-        <a href="#jukebox" ng-click="menu ='jukebox'" ng-class="{active : menu == 'jukebox'}"><img src="/res/image/icon-account.png" /></a>
-        <a href="#playing" ng-click="menu ='playing'" ng-class="{active : menu == 'playing'}"><img src="/res/image/icon-account.png" /></a>
-        <a href="#account" ng-click="menu ='account'"  ng-class="{active : menu == 'account'}"><img src="/res/image/icon-account.png" /></a>
-    </nav>
-
-
-
-
+    </div>
     <script src="js/jquery.js"></script>
+
+    <script type="text/javascript">
+
+    $(document).bind('mobileinit', function () {
+        $.extend($.mobile, {
+            hashListeningEnabled: false,
+            pushStateEnabled: false,
+            ajaxEnabled: false,
+            linkBindingEnabled: false
+        });
+    });
+    </script>
     <script src="js/jquerymobile.js"></script>
+
     <script src="js/angular.js"></script>
     <script src="js/angular_route.js"></script>
     <script src="cordova.js"></script>
@@ -40,6 +49,6 @@
     <script src="js/app.js"></script>
     <script src="js/NavCtrl.js"></script>
 
-    <script src="scripts/index.js"></script>
+
 </body>
 </html>
