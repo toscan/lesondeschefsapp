@@ -1,0 +1,67 @@
+﻿.layout_playlist{
+    width:48%;
+    height:33%;
+    text-align:center;
+    margin:1%;
+    display:inline-block;
+    background-color:red;
+}
+
+.search_options{
+    width:31.1%;
+    height:100%;
+    margin:1.1%;
+    display:inline-block;
+    }
+
+#duration{
+    background-color:red;
+}
+
+#content{
+    background-color:yellow;
+}
+
+#activity{
+    background-color:green;
+}
+#main_container{
+    z-index:1;
+    background-color:white;
+}
+
+.position_finale {
+    z-index: -1;
+    width: 31.1%;
+    height: 100%;
+    background-color: red;
+    position:relative;
+    top: 0%;
+}
+
+.position_init {
+    z-index: -1;
+    width: 31.1%;
+    height: 100%;
+    background-color: red;
+    top: -100%;
+    position: relative;
+}
+
+#options{
+    transition:top 1s;
+}
+
+#container_buttons{
+    width:100%;
+    height:10%;
+    margin-bottom:5%;
+}
+
+#container_playlist{
+    width:100%;
+    height:83%;
+}
+
+
+

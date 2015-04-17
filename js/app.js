@@ -3,6 +3,7 @@
     resize_cube();
     swipe_cube();
     stop_animate();
+    touch_menu_jukebox();
 }, false);
 
 
@@ -15,4 +16,5 @@ app.config(function ($routeProvider) {
     .when('/playing', { templateUrl: 'partials/playing.html', controller: 'NavCtrl' })
     .when('/account', { templateUrl: 'partials/account.html', controller: 'NavCtrl' })
     .otherwise({ redirectTo: '/home' })
+
 });
